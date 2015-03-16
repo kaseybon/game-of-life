@@ -40,39 +40,39 @@ end
 
 class TopCenter < FindNeighborParams
   def output
-    [@x, @y-1]
+    [@x-1, @y]
   end
 end
 
 class TopRight < FindNeighborParams
   def output
-    [@x+1, @y-1]
+    [@x-1, @y+1]
   end
 end
 
 # Same Row
 class Left < FindNeighborParams
   def output
-    [@x-1, @y]
+    [@x, @y-1]
   end
 end
 
 class Right < FindNeighborParams
   def output
-    [@x+1, @y]
+    [@x, @y+1]
   end
 end
 
 # Row Below
 class BottomLeft < FindNeighborParams
   def output
-    [@x-1, @y+1]
+    [@x+1, @y-1]
   end
 end
 
 class BottomCenter < FindNeighborParams
   def output
-    [@x, @y+1]
+    [@x+1, @y]
   end
 end
 
