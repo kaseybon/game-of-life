@@ -25,4 +25,4 @@ next generation of the grid, follow these four rules:
 Progress
 --------
 
-1. [Find all neighbors of a given cell](life-neighbors.rb)
+1. [Find all neighbors of a given cell](life-neighbors.rb) ([tests](spec/life-neighbors_spec.rb))
