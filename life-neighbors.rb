@@ -10,7 +10,14 @@ class Neighbors
     top_center = TopCenter.new(@x, @y)
     top_right = TopRight.new(@x, @y)
 
-    [top_left, top_center, top_right].each do |check|
+    left = Left.new(@x, @y)
+    right = Right.new(@x, @y)
+
+    bottom_left = BottomLeft.new(@x, @y)
+    bottom_center = BottomCenter.new(@x, @y)
+    bottom_right = BottomRight.new(@x, @y)
+
+    [top_left, top_center, top_right, left, right, bottom_left, bottom_center, bottom_right].each do |check|
       neighbor_array << check.output
     end
     return neighbor_array

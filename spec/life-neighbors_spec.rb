@@ -59,3 +59,12 @@ describe BottomRight do
     expect(bottom_right.output).to eq([3,3])
   end
 end
+
+describe Neighbors do
+  it 'returns an array of all neighbors for cell (2,2)' do
+    neighbors = Neighbors.new(2,2)
+    expect(neighbors.find_neighbors).to eq(
+      [[1,1], [2,1], [3,1], [1,2], [3,2], [1,3], [2,3], [3,3]]
+      )
+  end
+end
