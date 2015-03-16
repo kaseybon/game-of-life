@@ -26,3 +26,4 @@ Progress
 --------
 
 1. [Find all neighbors of a given cell](life-neighbors.rb) ([tests](spec/life-neighbors_spec.rb))
+2. [Convert grid in text file to two dimensional array](life-grid.rb)([tests](spec/life-grid_spec.rb))
