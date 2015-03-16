@@ -55,3 +55,22 @@ class Right < FindNeighborParams
     [@x+1, @y]
   end
 end
+
+# Row Below
+class BottomLeft < FindNeighborParams
+  def output
+    [@x-1, @y+1]
+  end
+end
+
+class BottomCenter < FindNeighborParams
+  def output
+    [@x, @y+1]
+  end
+end
+
+class BottomRight < FindNeighborParams
+  def output
+    [@x+1, @y+1]
+  end
+end

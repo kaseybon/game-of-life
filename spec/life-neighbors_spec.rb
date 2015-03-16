@@ -37,3 +37,25 @@ describe Right do
     expect(right.output).to eq([3,2])
   end
 end
+
+# Row Below
+describe BottomLeft do
+  it 'returns bottom left cell in relation to (2,2)' do
+    bottom_left = BottomLeft.new(2,2)
+    expect(bottom_left.output).to eq([1,3])
+  end
+end
+
+describe BottomCenter do
+  it 'returns bottom center cell in relation to (2,2)' do
+    bottom_center = BottomCenter.new(2,2)
+    expect(bottom_center.output).to eq([2,3])
+  end
+end
+
+describe BottomRight do
+  it 'returns bottom right cell in relation to (2,2)' do
+    bottom_right = BottomRight.new(2,2)
+    expect(bottom_right.output).to eq([3,3])
+  end
+end
