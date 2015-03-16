@@ -24,6 +24,7 @@ class FindNeighborParams
   end
 end
 
+# Row Above
 class TopLeft < FindNeighborParams
   def output
     [@x-1, @y-1]
@@ -39,5 +40,18 @@ end
 class TopRight < FindNeighborParams
   def output
     [@x+1, @y-1]
+  end
+end
+
+# Same Row
+class Left < FindNeighborParams
+  def output
+    [@x-1, @y]
+  end
+end
+
+class Right < FindNeighborParams
+  def output
+    [@x+1, @y]
   end
 end
