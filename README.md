@@ -27,4 +27,30 @@ Progress
 
 1. [Find all neighbors of a given cell](life-neighbors.rb) ([tests](spec/life-neighbors_spec.rb))
 2. [Convert grid in text file to two dimensional array](life-grid.rb) ([tests](spec/life-grid_spec.rb))
-3. [A given cell returns it's status, alive or dead](life-cell.rb) ([tests](spec/life-cell_spec.rb))
+3. [Cell returns it's current status: live or dead](life-cell.rb) ([tests](spec/life-cell_spec.rb))
+4. [Fate will determine a cell_fate: born, live or dead](life-fate.rb) ([tests](spec/life-fate_spec.rb))
+
+Notes
+-----
+
+* All files should be independent of each other except life-generation.rb
+  - [x] cell
+  - [x] fate
+  - [x] grid
+  - [x] neighbors
+  - [ ] living neighbors
+* The Generation class should, for each cell in the grid and:
+  - [ ] find living neighbors
+  - [ ] get current status
+  - [ ] return determined fate
+  - [ ] add cell's new status to a next_gen hash
+
+### Functions to use in Generation
+
+grid.start_grid(num)
+
+neighbors.find_neighbors(x,y)
+
+fate.cell_fate(status, living_neighbors)
+
+cell.cell_status
