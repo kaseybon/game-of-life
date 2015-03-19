@@ -1,5 +1,6 @@
 require 'spec_helper'
 require_relative '../life-neighbors'
+require_relative '../life-grid'
 
 # Row Above
 describe TopLeft do
@@ -62,9 +63,15 @@ end
 
 describe Neighbors do
   it 'returns an array of all neighbors for cell (2,2)' do
-    neighbors = Neighbors.new(2,2)
-    expect(neighbors.find_neighbors).to eq(
+    neighbors = Neighbors.new
+    expect(neighbors.find_neighbors(2,2)).to eq(
       [[1,1], [1,2], [1,3], [2,1], [2,3], [3,1], [3,2], [3,3]]
       )
   end
+
+  # it 'returns ...' do
+  #   grid = Grid.new.start_grid
+  #   neighbors = Neighbors.new.living_neighbors(grid)
+  #   expect(neighbors).to eq(2)
+  # end
 end

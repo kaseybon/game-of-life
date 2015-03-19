@@ -1,21 +1,21 @@
 class Neighbors
-  def initialize(x,y)
-    @x = x
-    @y = y
-  end
-  def find_neighbors
+  # def initialize(x,y)
+  #   @x = x
+  #   @y = y
+  # end
+  def find_neighbors(x,y)
     neighbor_array = []
 
-    top_left = TopLeft.new(@x, @y)
-    top_center = TopCenter.new(@x, @y)
-    top_right = TopRight.new(@x, @y)
+    top_left = TopLeft.new(x,y)
+    top_center = TopCenter.new(x,y)
+    top_right = TopRight.new(x,y)
 
-    left = Left.new(@x, @y)
-    right = Right.new(@x, @y)
+    left = Left.new(x,y)
+    right = Right.new(x,y)
 
-    bottom_left = BottomLeft.new(@x, @y)
-    bottom_center = BottomCenter.new(@x, @y)
-    bottom_right = BottomRight.new(@x, @y)
+    bottom_left = BottomLeft.new(x,y)
+    bottom_center = BottomCenter.new(x,y)
+    bottom_right = BottomRight.new(x,y)
 
     [top_left, top_center, top_right, left, right, bottom_left, bottom_center, bottom_right].each do |check|
       neighbor_array << check.output
@@ -28,7 +28,7 @@ class FindNeighborParams
   def initialize(x,y)
     @x = x
     @y = y
-  end
+  endv
 end
 
 # Row Above
