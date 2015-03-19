@@ -5,7 +5,7 @@ describe Grid do
 
   it 'creates a grid array from a text file' do
     grid = Grid.new
-    expect(grid.start_grid).to eq(
+    expect(grid.start_grid(1)).to eq(
         [
           [1, 1, 1],
           [0, 0, 0],
@@ -15,3 +15,4 @@ describe Grid do
   end
 
 end
+

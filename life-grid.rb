@@ -1,8 +1,8 @@
 class Grid
-  def start_grid
+  def start_grid(num)
     grid = []
 
-    File.open("generations/grid-1.txt").readlines.each do |line|
+    File.open("generations/grid-#{num}.txt").readlines.each do |line|
       grid << line.split(", ").map { |s| s.to_i }
     end
     return grid
