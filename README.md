@@ -38,17 +38,18 @@ Notes
   - [x] grid
   - [x] neighbors/living neighbors
 * The Generation class should, for each cell in the grid and:
-  - [ ] find number of living neighbors
-  - [ ] get current status
-  - [ ] return determined fate
-  - [ ] add cell's new status to a next_gen hash
+  - [x] find number of living neighbors
+  - [x] get current status
+  - [x] return determined fate
+  - [x] add cell's new status to a next_gen_grid array
+  - [x] split into 2D array with same proportions as original grid & return
 
-### Functions to use in Generation
+### Functions used in Generation
 
 instance_of_grid.start_grid(num)
 
-instance_of_neighbors.living_neighbors(x,y, grid)
+instance_of_neighbors.living_neighbors(x,y,grid)
 
-instance_of_fate.cell_fate(status, living_neighbors)
+instance_of_fate.cell_fate(status,living_neighbors)
 
-instance_of_cell.cell_status
+instance_of_cell.status(status)

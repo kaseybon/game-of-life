@@ -61,17 +61,32 @@ describe BottomRight do
 end
 
 describe Neighbors do
-  grid = [[1, 1, 1],[0, 0, 0],[0, 0, 0]]
+  let(:neighbors) { Neighbors.new }
+  subject { neighbors }
+
+  grid = [
+    [1, 1, 1],
+    [0, 0, 0],
+    [0, 0, 0]
+  ]
 
   it 'returns an array of all neighbors for cell (2,2)' do
-    neighbors = Neighbors.new
-    expect(neighbors.find_neighbors(2,2)).to eq(
-      [[1,1], [1,2], [1,3], [2,1], [2,3], [3,1], [3,2], [3,3]]
-      )
+    expect(neighbors.find_neighbors(2,2)).to eq([[1, 1], [1, 2], [1, 3], [2, 1], [2, 3], [3, 1], [3, 2], [3, 3]])
   end
 
   it 'finds the number of a cells living neighbors on a grid' do
-    neighbors = Neighbors.new
     expect(neighbors.living_neighbors(1,1,grid)).to eq(3)
+  end
+
+  it 'finds the number of a cells living neighbors on a grid' do
+    expect(neighbors.living_neighbors(0,0,grid)).to eq(1)
+  end
+
+  it 'finds the number of a cells living neighbors on a grid' do
+    expect(neighbors.living_neighbors(1,2,grid)).to eq(2)
+  end
+
+  it 'finds the number of a cells living neighbors on a grid' do
+    expect(neighbors.living_neighbors(2,2,grid)).to eq(0)
   end
 end

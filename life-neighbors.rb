@@ -1,8 +1,4 @@
 class Neighbors
-  # def initialize(x,y)
-  #   @x = x
-  #   @y = y
-  # end
   def find_neighbors(x,y)
     neighbor_array = []
 
@@ -22,16 +18,26 @@ class Neighbors
     end
     return neighbor_array
   end
-  def living_neighbors(x,y, grid)
+  def living_neighbors(x,y,grid)
     neighbors = find_neighbors(x,y)
     neighbor_values = []
+   
+    # remove neighbors with negative values
+    neighbors.each do |check|
+      if check.any? { |x| x < 0 || x >= grid.length || x >= grid[0].length }
+        check.clear
+      end
+    end
+    
+    neighbors = neighbors.delete_if { |elem| elem.flatten.empty? }
 
     neighbors.each do |check|
       x = check[0]
       y = check[1]
       neighbor_values << grid[x][y]
     end
-    valid_neighbors = neighbor_values.select{ |x| x == 1 }.length
+    
+    return valid_neighbors = neighbor_values.select{ |x| x == 1 }.length
   end
 end
 

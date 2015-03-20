@@ -1,13 +1,8 @@
 class Fate
-  def initialize(status,living_neighbors)
-    @status = status # Cell value, either 0 or 1
-    @living_neighbors = living_neighbors # Number of living neighbors
-  end
-
-  def cell_fate
-    live = Live.new(@status,@living_neighbors)
-    dead = Dead.new(@status,@living_neighbors)
-    born = Born.new(@status,@living_neighbors)
+  def cell_fate(status,living_neighbors)
+    live = Live.new(status,living_neighbors)
+    dead = Dead.new(status,living_neighbors)
+    born = Born.new(status,living_neighbors)
     fate = nil
 
     [born, live, dead].each do |check|
@@ -30,19 +25,19 @@ end
 
 class Born < CellParams
   def does?
-    true if @living_neighbors == 3 && @status == 0
+    true if @living_neighbors == 3 && @status == :dead
   end
   def output
-    :born
+    1 #:born
   end
 end
 
 class Live < CellParams
   def does?
-    true if @living_neighbors.between?(2,3) && @status == 1
+    true if @living_neighbors.between?(2,3) && @status == :live
   end
   def output
-    :live
+    1 #:live
   end
 end
 
@@ -51,6 +46,6 @@ class Dead < CellParams
     true
   end
   def output
-    :dead
+    0 #:dead
   end
 end
