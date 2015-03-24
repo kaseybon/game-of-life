@@ -26,7 +26,7 @@ Progress
 
 1. [Find all living neighbors of a given cell](life-neighbors.rb) ([tests](spec/life-neighbors_spec.rb))
 2. [Convert grid in text file to two dimensional array](life-grid.rb) ([tests](spec/life-grid_spec.rb))
-3. [Cell returns it's current status: live or dead](life-cell.rb) ([tests](spec/life-cell_spec.rb))
+3. ~~[Cell returns it's current status: live or dead](life-cell.rb) ([tests](spec/life-cell_spec.rb))~~
 4. [Fate will determine a cell_fate: born, live or dead](life-fate.rb) ([tests](spec/life-fate_spec.rb))
 
 Notes

@@ -7,6 +7,7 @@ def generation(grid)
   world = Grid.new.start_grid(grid)
   next_gen_grid = []
 
+  
   # Loop through each array in the world array
   world.length.times do |x|
 
@@ -14,8 +15,7 @@ def generation(grid)
     world[x].length.times do |y|
 
       living_neighbors = Neighbors.new.living_neighbors(x,y,world)
-      cell_status = Cell.new.status(world[x][y])
-      fate = Fate.new.cell_fate(cell_status, living_neighbors)
+      fate = Fate.new.cell_fate(world[x][y], living_neighbors)
       
       next_gen_grid << fate
     end # end y loop
