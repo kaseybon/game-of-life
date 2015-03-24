@@ -25,7 +25,7 @@ end
 
 class Born < CellParams
   def does?
-    true if @living_neighbors == 3 && @status == :dead
+    true if @living_neighbors == 3 && @status == 0
   end
   def output
     1 #:born
@@ -34,7 +34,7 @@ end
 
 class Live < CellParams
   def does?
-    true if @living_neighbors.between?(2,3) && @status == :live
+    true if @living_neighbors.between?(2,3) && @status == 1
   end
   def output
     1 #:live
