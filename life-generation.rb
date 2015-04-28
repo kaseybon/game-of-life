@@ -11,7 +11,7 @@ class Generation
     neighborhood = {}
 
     @living_cells.each do |x|
-      neighbors = Neighbors.new.neighbor_map(x)
+      neighbors = Neighbors.new.neighbor_map(x[0], x[1])
       neighborhood.store(x, neighbors)
     end
 
