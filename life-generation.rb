@@ -5,44 +5,38 @@ class Generation
 
   def initialize(living_cells)
     @living_cells = living_cells
+    @evolved_grid = []
   end
 
   def neighborhood
-    neighborhood = {}
-
+    living_conditions = {}
+    
     @living_cells.each do |x|
-      neighbors = Neighbors.new.neighbor_map(x[0], x[1])
-      neighborhood.store(x, neighbors)
+      potential_neighbors = Neighbors.new.neighbor_map(x[0], x[1])
+      non_living_neighbors = (potential_neighbors - @living_cells)
+      living_neighbors = (8 - non_living_neighbors.length)
+
+      living_conditions.store(x, living_neighbors)
     end
 
-    neighborhood
+    living_conditions
   end
-  
+
   def evolve
 
-  end
+    # Create a map of the neighborhood
+    
 
-
-
-  # world = Grid.new.start_grid(grid)
-  # next_gen_grid = []
-
-  
-  # # Loop through each array in the world array
-  # world.length.times do |x|
-
-  #   # While in each array, loop through each item
-  #   world[x].length.times do |y|
-
-  #     living_neighbors = Neighbors.new.living_neighbors(x,y,world)
-  #     fate = Fate.new.cell_fate(world[x][y], living_neighbors)
+    # Determine the fate of the living cells
+    @living_conditions.each do |key, value|
+      fate = Fate.new
       
-  #     next_gen_grid << fate
-  #   end # end y loop
-  # end # end x loop
+      if fate.cell_fate(1, value)
+        @evolved_grid << key
+      end
+    end
 
-  # # Convert next_gen_grid a 2D array
-  # next_gen_grid = next_gen_grid.each_slice(world[0].length).to_a
-  
-  # return next_gen_grid
+    print @evolved_grid
+    @evolved_grid
+  end
 end
