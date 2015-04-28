@@ -1,100 +1,66 @@
 class Neighbors
-  def find_neighbors(x,y)
-    neighbor_array = []
+  # def find_neighbors(x,y)
+  #   neighbor_array = [x+1, x, x-1, y+1, y, y-1].repeated_combination(2).to_a
+  #   neighbor_array.uniq!
+  #   neighbor_array.delete([x,y])
+  #   print neighbor_array
+  #   return neighbor_array
+  # end
+  def neighbor_map(x,y)
+    map_array = []
 
-    top_left = TopLeft.new(x,y)
-    top_center = TopCenter.new(x,y)
-    top_right = TopRight.new(x,y)
 
-    left = Left.new(x,y)
-    right = Right.new(x,y)
+    #Find Possible Neighbor Addresses
+    # This doesn't work...
+    ### neighbor_array = [x+1, x, x-1, y+1, y, y-1].repeated_combination(2).to_a
+    ### neighbor_array.uniq!
+    ### neighbor_array.delete([x,y])
 
-    bottom_left = BottomLeft.new(x,y)
-    bottom_center = BottomCenter.new(x,y)
-    bottom_right = BottomRight.new(x,y)
 
-    [top_left, top_center, top_right, left, right, bottom_left, bottom_center, bottom_right].each do |check|
-      neighbor_array << check.output
+    # Above
+    starting = y-1
+    ending = y + 1
+
+    (starting..ending).each do |i|
+      map_array << [x-1, i]
     end
-    return neighbor_array
-  end
-  def living_neighbors(x,y,grid)
-    neighbors = find_neighbors(x,y)
-    neighbor_values = []
+
+
+
+    # Beside
+    starting = y-1
+    ending = y + 1
+
+    (starting..ending).each do |i|
+      map_array << [x, i]
+    end
+    map_array.delete([x,y])
+
+    # Below
+    starting = y-1
+    ending = y + 1
+
+    (starting..ending).each do |i|
+      map_array << [x+1, i]
+    end
    
     # remove neighbors with negative values
-    neighbors.each do |check|
-      if check.any? { |x| x < 0 || x >= grid.length || x >= grid[0].length }
-        check.clear
-      end
-    end
+    # neighbor_array.each do |check|
+    #   if check.any? { |x| x < 0 || x >= grid.length || x >= grid[0].length }
+    #     check.clear
+    #   end
+    # end
     
-    neighbors = neighbors.delete_if { |elem| elem.flatten.empty? }
+    #neighbor_array = neighbor_array.delete_if { |elem| elem.flatten.empty? }
 
-    neighbors.each do |check|
-      x = check[0]
-      y = check[1]
-      neighbor_values << grid[x][y]
-    end
+    # neighbor_array.each do |check|
+    #   x = check[0]
+    #   y = check[1]
+    #   neighbor_values << grid[x][y]
+    # end
     
-    return valid_neighbors = neighbor_values.select{ |x| x == 1 }.length
-  end
-end
+    #return valid_neighbors = neighbor_values.select{ |x| x == 1 }.length
+    map_array
 
-class FindNeighborParams
-  def initialize(x,y)
-    @x = x
-    @y = y
-  end
-end
-
-# Row Above
-class TopLeft < FindNeighborParams
-  def output
-    [@x-1, @y-1]
-  end
-end
-
-class TopCenter < FindNeighborParams
-  def output
-    [@x-1, @y]
-  end
-end
-
-class TopRight < FindNeighborParams
-  def output
-    [@x-1, @y+1]
-  end
-end
-
-# Same Row
-class Left < FindNeighborParams
-  def output
-    [@x, @y-1]
-  end
-end
-
-class Right < FindNeighborParams
-  def output
-    [@x, @y+1]
-  end
-end
-
-# Row Below
-class BottomLeft < FindNeighborParams
-  def output
-    [@x+1, @y-1]
-  end
-end
-
-class BottomCenter < FindNeighborParams
-  def output
-    [@x+1, @y]
-  end
-end
-
-class BottomRight < FindNeighborParams
-  def output
-    [@x+1, @y+1]
   end
 end
